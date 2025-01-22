@@ -2,7 +2,7 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 
 const FirstPage = () => {
-  const [gridColors, setGridColors] = useState(Array(9).fill("bg-blue-600"));
+  const [gridColors, setGridColors] = useState(Array(9).fill("bg-blue-800"));
   const [clickOrder, setClickOrder] = useState([]); 
 
   const handleSquareClick = (index) => {
@@ -20,17 +20,16 @@ const FirstPage = () => {
         setTimeout(() => {
           setGridColors((prevColors) => {
             const updatedColors = [...prevColors];
-            updatedColors[clickedIndex] = "bg-blue-600";
+            updatedColors[clickedIndex] = "bg-blue-800";
             return updatedColors;
           });
         }, delay);
         delay += 300; 
       });
 
-      
       setTimeout(() => {
-        setGridColors(Array(9).fill("bg-blue-600"));
-        setClickOrder([]);
+        setGridColors(Array(9).fill("bg-blue-900"));
+        setClickOrder([]); 
       }, delay + 300);
     } else {
       setGridColors(newColors);
@@ -38,16 +37,14 @@ const FirstPage = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col h-screen w-screen">
       <Navbar />
-      <div className="flex flex-wrap justify-center mt-10 gap-6">
-        <div className="w-40 h-40 sm:w-40 sm:h-40 bg-gradient-to-br from-purple-700 to-pink-500 rounded-lg shadow-lg"></div>
-
-        <div className="w-40 h-40 sm:w-40 sm:h-40 bg-white rounded-lg shadow-lg flex justify-center items-center overflow-hidden">
+      <div className="flex-row justify-center items-center">
+        <div className="w-40 h-40 bg-gradient-to-br from-purple-700 to-pink-500 rounded-lg shadow-lg"></div>
+        <div className="w-40 h-40 bg-white rounded-lg shadow-lg flex justify-center items-center overflow-hidden">
           <img src="/Ecell.png" alt="E-Cell Logo" className="w-full h-full object-cover" />
         </div>
-
-        <div className="w-40 h-40 sm:w-40 sm:h-40 bg-gray-100 rounded-lg shadow-inner grid grid-cols-3 grid-rows-3 gap-1 p-1">
+        <div className="w-40 h-40 bg-gray-100 rounded-lg shadow-inner grid grid-cols-3 grid-rows-3 gap-1 p-1">
           {gridColors.map((color, index) => (
             <div
               key={index}
