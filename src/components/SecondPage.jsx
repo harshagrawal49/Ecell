@@ -1,29 +1,40 @@
+import { useNavigate } from "react-router-dom";
+import { Typewriter } from "react-simple-typewriter";
+
 const SecondPage = () => {
-    return (
-      <div className="min-h-screen bg-black text-white">
-        <Navbar />
-        <div className="flex flex-col items-center justify-center px-4 mt-10 sm:mt-20">
-          
-          <img
-            src="/path-to-your-picture.jpg"
-            alt="Your Name"
-            className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-pink-500"
-          />
-          <h1 className="text-2xl sm:text-3xl mt-4 text-center">Priyam Pandey</h1>
-          <p className="mt-2 text-center">Registration Number: 20233221</p>
-  
-          
-          <a
-            href="https://www.instagram.com/priyam_pandey05/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 bg-pink-500 px-4 py-2 text-sm sm:text-base rounded-lg hover:bg-pink-600"
-          >
-            Visit My Instagram
-          </a>
-        </div>
+  const navigate = useNavigate();
+
+  return (
+    <div
+      className="min-h-screen bg-cover bg-center text-white flex flex-col justify-center items-center relative"
+      style={{ backgroundImage: "url('/SquidGame.png')" }}
+    >
+      
+      <button
+        onClick={() => navigate("/")}
+        className="absolute top-4 right-4 bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 focus:outline-none"
+      >
+        Back to First Page
+      </button>
+
+    
+      <div className="text-center mt-10 px-4">
+      <p className="text-lg sm:text-xl font-bold w-[90%] sm:w-[70%] mx-auto">
+        <Typewriter
+            words={[
+            "Life is like a game. There are many players. If you don't play with them, they'll play with you.",
+            ]}
+            loop={false}
+            cursor={true}
+            cursorStyle="|"
+            typeSpeed={70} 
+            deleteSpeed={60}
+            delaySpeed={1000}
+        />
+        </p>
       </div>
-    );
-  };
-  
-  export default SecondPage;
+    </div>
+  );
+};
+
+export default SecondPage;

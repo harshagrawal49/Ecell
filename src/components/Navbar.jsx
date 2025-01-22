@@ -1,18 +1,19 @@
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+    const navigate = useNavigate();
     return (
-      <div className="flex flex-col sm:flex-row justify-between items-center px-6 py-4 shadow-md bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
-        <div className="text-2xl font-extrabold text-white mb-2 sm:mb-0">
-        </div>
+      <div className="flex flex-col sm:flex-row justify-between items-center px-6 py-4 shadow-md bg-white">
+        <div className="text-xl font-bold mb-2 sm:mb-0"></div>
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
-          <a
-            href="/"
-            className="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl focus:ring focus:ring-blue-300 transition-all duration-300"
+          <button
+            onClick={() => navigate("/second")}
+            className="px-4 py-2  text-black font-semibold"
           >
             Home
-          </a>
+          </button>
           <a
             href="/"
-            className="px-6 py-3 rounded-lg bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl focus:ring focus:ring-green-300 transition-all duration-300"
+            className="px-4 py-2 text-black font-semibold"
           >
             Grid
           </a>
@@ -20,7 +21,7 @@ const Navbar = () => {
             href="https://www.linkedin.com/in/priyam-pandey-a3516a287/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-lg bg-gradient-to-r from-gray-500 to-gray-700 text-white font-semibold shadow-lg hover:scale-105 hover:shadow-2xl focus:ring focus:ring-gray-400 transition-all duration-300"
+            className="px-4 py-2 rounded-lg text-black font-semibold"
           >
             LinkedIn
           </a>
