@@ -1,7 +1,16 @@
-export default function App() {
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import FirstPage from "./components/FirstPage";
+import SecondPage from "./components/SecondPage";
+
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<FirstPage />} />
+        <Route path="/second" element={<SecondPage />} />
+      </Routes>
+    </Router>
+  );
 }
+
+export default App;
