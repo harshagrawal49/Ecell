@@ -58,7 +58,7 @@ const FirstPage = () => {
             ))}
           </div>
 
-          <div className=" order-2  w-40 h-40  sm:w-40 sm:h-40 lg:w-60 lg:h-60 bg-white rounded-lg shadow-lg flex justify-center items-center overflow-hidden border-[1px] border-black">
+          <div className="order-2  w-40 h-40  sm:w-40 sm:h-40 lg:w-60 lg:h-60 bg-white rounded-lg shadow-lg flex justify-center items-center overflow-hidden border-[1px] border-black">
             <img
               src="/Ecell.png"
               alt="E-Cell Logo"
@@ -66,7 +66,7 @@ const FirstPage = () => {
               />
           </div>
         </div>
-        <div className=" md:order-1 sm:order-3 md:w-[350px] w-40 h-40 sm:w-40 sm:h-40 lg:w-60 lg:h-60 bg-gradient-to-br from-[#3300FF] to-[#FA00FF] rounded-lg shadow-lg"></div>
+        <div className="sm:order-3 md:order-1 md:w-[350px] w-40 h-40 sm:w-40 sm:h-40 lg:w-60 lg:h-60 bg-gradient-to-br from-[#3300FF] to-[#FA00FF] rounded-lg shadow-lg"></div>
       </div>
     </div>
   );
