@@ -2,34 +2,41 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 
 const FirstPage = () => {
-  const [gridColors, setGridColors] = useState(Array(9).fill("bg-blue-800"));
-  const [clickOrder, setClickOrder] = useState([]); 
+  const [gridColors, setGridColors] = useState([
+    "bg-blue-900", "bg-blue-900", "bg-blue-900", "bg-blue-900", 
+    "bg-blue-900", "bg-blue-900", "bg-blue-900", "bg-blue-900", 
+    "bg-red-900" 
+  ]);
+  const [clickOrder, setClickOrder] = useState([]);
 
   const handleSquareClick = (index) => {
-    if (gridColors[index] === "bg-red-600") return; 
+    if (gridColors[index] === "customBlue") return;
 
     const newColors = [...gridColors];
-    newColors[index] = "bg-red-600";
-    setClickOrder([...clickOrder, index]); 
+    newColors[index] = "bg-red-900"; 
+    setClickOrder([...clickOrder, index]);
 
     if (index === 8) {
-      
       let delay = 0;
 
-      clickOrder.forEach((clickedIndex, idx) => {
+      clickOrder.forEach((clickedIndex) => {
         setTimeout(() => {
           setGridColors((prevColors) => {
             const updatedColors = [...prevColors];
-            updatedColors[clickedIndex] = "bg-blue-800";
+            updatedColors[clickedIndex] = "bg-blue-900"; 
             return updatedColors;
           });
         }, delay);
-        delay += 300; 
+        delay += 300;
       });
 
       setTimeout(() => {
-        setGridColors(Array(9).fill("bg-blue-900"));
-        setClickOrder([]); 
+        setGridColors((prevColors) => {
+          const updatedColors = [...prevColors];
+          updatedColors[8] = "bg-red-900"; 
+          return updatedColors;
+        });
+        setClickOrder([]);
       }, delay + 300);
     } else {
       setGridColors(newColors);
@@ -39,20 +46,29 @@ const FirstPage = () => {
   return (
     <div className="flex flex-col h-screen w-screen">
       <Navbar />
-      <div className="flex-row justify-center items-center">
-        <div className="w-40 h-40 bg-gradient-to-br from-purple-700 to-pink-500 rounded-lg shadow-lg"></div>
-        <div className="w-40 h-40 bg-white rounded-lg shadow-lg flex justify-center items-center overflow-hidden">
-          <img src="/Ecell.png" alt="E-Cell Logo" className="w-full h-full object-cover" />
-        </div>
-        <div className="w-40 h-40 bg-gray-100 rounded-lg shadow-inner grid grid-cols-3 grid-rows-3 gap-1 p-1">
+      <div className="flex flex-wrap justify-center items-center gap-4 p-4">
+        
+        <div className="order-1 sm:order-3 w-40 h-40 lg:w-60 lg:h-60 bg-gray-300 rounded-lg shadow-inner grid grid-cols-3 grid-rows-3 gap-2 p-5">
           {gridColors.map((color, index) => (
             <div
               key={index}
-              className={`w-full h-full ${color} rounded-sm`}
+              className={`w-full h-full ${color} rounded-lg`} 
               onClick={() => handleSquareClick(index)}
             ></div>
           ))}
         </div>
+
+        
+        <div className="order-2 w-40 h-40  sm:w-40 sm:h-40 lg:w-60 lg:h-60 bg-white rounded-lg shadow-lg flex justify-center items-center overflow-hidden border-[1px] border-black">
+          <img
+            src="/Ecell.png"
+            alt="E-Cell Logo"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        
+        <div className="order-3 sm:order-1 w-40 h-40 sm:w-40 sm:h-40 lg:w-60 lg:h-60 bg-gradient-to-br from-blue-700 to-magenta rounded-lg shadow-lg"></div>
       </div>
     </div>
   );
