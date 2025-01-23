@@ -48,7 +48,7 @@ const FirstPage = () => {
       <Navbar />
       <div className="flex flex-col lg:flex-row justify-center items-center gap-4 p-4">
         <div className="flex md:flex-row gap-5 md:order-2 flex-col">
-          <div className="order-1 w-40 h-40 lg:w-60 lg:h-60 bg-gray-300 rounded-lg shadow-inner grid grid-cols-3 grid-rows-3 gap-2 p-5 ">
+          <div className="order-3 w-40 h-40 lg:w-60 lg:h-60 bg-gray-300 rounded-lg shadow-inner grid grid-cols-3 grid-rows-3 gap-2 p-5 ">
             {gridColors.map((color, index) => (
               <div
               key={index}
