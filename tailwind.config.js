@@ -6,10 +6,6 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        customBlue: 'rgb(0, 64, 122)', 
-        magenta: 'rgb(246, 1, 255)'
-      },
     },
   },
   plugins: [],
